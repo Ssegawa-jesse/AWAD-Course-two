@@ -2,11 +2,9 @@
 
 namespace App\Models;
 
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-
 
 class Lecturer extends Model
 {
@@ -20,6 +18,8 @@ class Lecturer extends Model
         'qualification',
         'employment_type',
         'phone',
+        'specialisation',
+        'cv_path',
     ];
 
     public function user(): BelongsTo
@@ -27,5 +27,6 @@ class Lecturer extends Model
         return $this->belongsTo(User::class);
     }
 }
+
 
 
