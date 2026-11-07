@@ -1,0 +1,168 @@
+/* ScholarDesk — Student Management System
+   Deep teal (#0f625b) primary, warm orange (#f76b15) accent, dark sidebar. */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; overflow-x: hidden; }
+
+body {
+    font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #f4f6f5;
+    color: #0f172a;
+}
+
+/* ---------- surfaces ---------- */
+.card {
+    background: #ffffff;
+    border: 1px solid #e3e8e6;
+    border-radius: 1.1rem;
+    box-shadow: 0 1px 2px rgba(6, 38, 36, 0.04);
+}
+
+.sidebar-pattern {
+    background-image:
+        radial-gradient(circle at 0% 0%, rgba(43, 185, 167, 0.18) 0, transparent 45%),
+        radial-gradient(circle at 100% 100%, rgba(247, 107, 21, 0.12) 0, transparent 40%);
+}
+
+.hero-grid {
+    background-image:
+        linear-gradient(rgba(15, 98, 91, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 98, 91, 0.06) 1px, transparent 1px);
+    background-size: 36px 36px;
+    -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse at 50% 30%, #000 30%, transparent 75%);
+}
+
+.text-gradient {
+    background: linear-gradient(120deg, #0f625b 0%, #14998b 45%, #f76b15 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ---------- sidebar nav ---------- */
+.nav-label {
+    padding: 0 0.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(149, 233, 218, 0.55);
+}
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(201, 245, 236, 0.78);
+    transition: background 0.15s, color 0.15s;
+}
+.nav-item:hover { background: rgba(255, 255, 255, 0.06); color: #fff; }
+.nav-item-active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    box-shadow: inset 3px 0 0 #f76b15;
+}
+.nav-item-active i, .nav-item-active svg { color: #ff8a3d; }
+
+.sidebar-scrollbar::-webkit-scrollbar { width: 6px; }
+.sidebar-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 3px; }
+
+/* ---------- buttons ---------- */
+.btn-primary, .btn-ghost, .btn-accent {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.1rem;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: background 0.15s, border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.btn-primary { background: #0f625b; color: #fff; box-shadow: 0 6px 18px -6px rgba(15, 98, 91, 0.55); }
+.btn-primary:hover { background: #114e4a; transform: translateY(-1px); }
+.btn-accent { background: #f76b15; color: #fff; box-shadow: 0 6px 18px -6px rgba(247, 107, 21, 0.6); }
+.btn-accent:hover { background: #e5520b; transform: translateY(-1px); }
+.btn-ghost { background: #fff; color: #0f3f3c; border: 1px solid #d6dedb; }
+.btn-ghost:hover { border-color: #2bb9a7; background: #effcf9; }
+
+/* ---------- forms ---------- */
+.field-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 0.4rem;
+}
+.input-field {
+    width: 100%;
+    border-radius: 0.75rem;
+    background: #fbfcfc;
+    border: 1px solid #d6dedb;
+    color: #0f172a;
+    padding: 0.7rem 0.95rem;
+    font-size: 0.875rem;
+    font-family: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+}
+.input-field:focus {
+    outline: none;
+    background: #fff;
+    border-color: #14998b;
+    box-shadow: 0 0 0 4px rgba(20, 153, 139, 0.14);
+}
+.input-field::placeholder { color: #94a3b8; }
+.input-field:user-invalid { border-color: #f87171; }
+
+select.input-field {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%2364748b' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    padding-right: 2.4rem;
+}
+
+.file-input::file-selector-button {
+    margin-right: 1rem;
+    padding: 0.5rem 1rem;
+    border: 0;
+    border-radius: 0.6rem;
+    background: #effcf9;
+    color: #0f625b;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#toast { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 60; }
+[hidden] { display: none !important; }
+
+/* course selection cards (checkbox inside label) */
+.pick-card:has(input:checked) { border-color: #14998b; background: #effcf9; box-shadow: 0 0 0 3px rgba(20, 153, 139, 0.12); }
+
+/* ---------- misc ---------- */
+details.menu-dropdown > summary { list-style: none; }
+details.menu-dropdown > summary::-webkit-details-marker { display: none; }
+
+.progress { height: 0.5rem; border-radius: 999px; background: #e3e8e6; overflow: hidden; }
+.progress > span { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #14998b, #2bb9a7); }
+.progress.warn > span { background: linear-gradient(90deg, #f76b15, #ff8a3d); }
+
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.animate-rise { animation: rise 0.5s ease-out both; }
+
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.float { animation: float 6s ease-in-out infinite; }
+
+@media print {
+    aside, header, footer, .no-print { display: none !important; }
+    .lg\:pl-\[260px\] { padding-left: 0 !important; }
+}
